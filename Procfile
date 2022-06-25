@@ -1,1 +1,1 @@
-worker: python3 uploadgram.py
+worker: python3 config.py
