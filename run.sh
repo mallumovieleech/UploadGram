@@ -1,1 +1,1 @@
-python3 uploadgram.py
+python3 config.py
