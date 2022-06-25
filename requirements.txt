@@ -1,0 +1,14 @@
+aiohttp
+aiohttp[speedups]>=3.7.3
+feedparser
+Pyrogram==2.0.30
+TgCrypto
+natsort
+requests
+bs4
+apscheduler
+motor
+dnspython
+wget>=3.2
+youtube-search-python
+ujson
