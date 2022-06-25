@@ -1,12 +1,8 @@
-FROM ubuntu:20.04
-
-COPY run.sh requirements.txt testwatermark.jpg /app/
-COPY UploadGram /app/UploadGram/
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt -y update && \
-    apt install -y --no-install-recommends python3 git python3-pip ffmpeg aria2 file p7zip-full && \
-    rm -rf /var/lib/apt/lists/* \
-    && echo "Etc/UTC" > /etc/timezone \
-    && pip3 install -r /app/requirements.txt
+FROM python:3.9.2-slim-buster
+RUN mkdir /bot && chmod 777 /bot
+WORKDIR /bot
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt -qq update && apt -qq install -y git wget pv jq wget python3-dev ffmpeg mediainfo
 COPY . .
+RUN pip3 install -r requirements.txt
 CMD ["bash","run.sh"]
